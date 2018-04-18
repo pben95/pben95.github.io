@@ -55,11 +55,22 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron" style="text-align:center;">
+      <div class="jumbotron" style="text-align:left;">
         <h2><b>About the game</b></h2></br>
         <p>This game is being made in Solidity using Remix IDE.</p>
         <p>It is currently in closed alpha for the contract.</p>
-		<p>Plans to develop front-end using react or similar JS library.</p>
+		<h3>Instructions for testers:</h3>
+		<h4>1: Use freeStuff() to get free energy and 50 units of material 1.</h4>
+		<h4>2: Use newStar(ID#) to get a star in the sector ID#. Between 1 and 225.</h4>
+		<h4>3: Use newStation(starID#) to get a station orbiting that star.</h4>
+		<h4>4: Use newShip(stationID#,1,1,1,1) to get a new ship at that station, using material 1 for all 4 components.</h4>
+		<h4>5: Use assetProduce(true, starId#) to produce energy from your star, true being a star, false being a planet.</h4>
+		<h4>6: Use exploreShip(shipId#) to explore the sector with your ship. You can find the sector's blackhole or wormhole.</h4>
+		<h4>7: Continue to use assetProduce and exploreShip on their cooldown to get more energy to use newPlanet(starId#).</h4>
+		<h4>8: Use assetSetProduction(planetId#, 1) to allow your planet to produce material 1, which is the only option at level 1.</h4>
+		<h4>9: Use assetProduce(false, planetId#) to convert energy into material 1. You cannot check your material balance in this contract.</h4>
+		<h4>10: Use assetProduceDrones(stationId#, amount, 1) to produce drones using material 1. For material 1, you get 1 drone/input.</h4>
+		<h4>11: Use defendAsset(type, id) or attackAsset(type, id) to defend/attack Stars/Planets/Stations/Sectors (types 0, 1, 2, 3).</h4>
       </div>
 
     </div> <!-- /container -->
