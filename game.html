@@ -35,7 +35,6 @@
 		<button id="button7"> newShip(stationID, shipClass)</button>
 		<button id="button8"> shipExplore(shipID)</button>
 		<button id="button9"> shipMoveSectors(shipID, numpad direction)</button>
-		<button id="button10"> shipStorageManage(shipID, 0 for withdraw 1 for deposit, 0 for matter 1 for energy, amount)</button>
 		<button id="button11"> shipRepair(shipID)</button>
 		<button id="button12"> shipBattleShip(your shipID, enemy shipID)</button>
 		<button id="button13"> shipAttackObject(shipID, type, objectID)</button>
@@ -144,16 +143,6 @@
 		$("#button9").click(function(){
 
                 Coursetro.shipMoveSectors($("#input1").val(),$("#input2").val(),
-                {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
-                value:  0
-                    }, function(err, transactionHash) {
-              if (!err)
-                console.log(transactionHash); 
-            })});
-		$("#button10").click(function(){
-
-                Coursetro.shipStorageManage($("#input1").val(),$("#input2").val(),$("#input3").val(),$("#input4").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x39cc88df9acafd7bbc511599670597a19737f969',
                 value:  0
