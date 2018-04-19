@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EtherGalaxy</title>
+	<script></script>
+  </head>
+  <body>
+	<script>
+		const Eth = require('ethjs-query')
+		const EthContract = require('ethjs-contract')
+		const abi = [{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"stationCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"},{"name":"_id","type":"uint8"}],"name":"getSectorBalances","outputs":[{"name":"","type":"uint64"},{"name":"","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"compute","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_hull","type":"uint16"},{"name":"_short","type":"uint16"},{"name":"_long","type":"uint16"},{"name":"_speed","type":"uint16"},{"name":"_maxEnergy","type":"uint64"},{"name":"_maxMatter","type":"uint64"},{"name":"_energyCost","type":"uint64"},{"name":"_matterCost","type":"uint64"}],"name":"newShipClass","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"starCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"},{"name":"_amt","type":"uint64"}],"name":"defendObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint8"}],"name":"shipClasses","outputs":[{"name":"active","type":"bool"},{"name":"maxHull","type":"uint16"},{"name":"shortDamage","type":"uint16"},{"name":"longDamage","type":"uint16"},{"name":"speed","type":"uint16"},{"name":"maxEnergy","type":"uint64"},{"name":"maxMatter","type":"uint64"},{"name":"energyCost","type":"uint64"},{"name":"matterCost","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint8"}],"name":"getStarPlanets","outputs":[{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_value","type":"uint256"}],"name":"changeValue","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"}],"name":"shipExplore","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"planetCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint8"}],"name":"toggleShipClass","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_stationId","type":"uint32"}],"name":"shipBailout","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"}],"name":"shipRepair","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stationId","type":"uint32"},{"name":"_class","type":"uint8"}],"name":"newShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"objectLevelUp","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"objectUpgrade","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_sectorId","type":"uint8"},{"name":"_name","type":"bytes16"}],"name":"nameSector","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_enemyId","type":"uint32"}],"name":"shipBattleShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stationId","type":"uint32"},{"name":"_amt","type":"uint64"}],"name":"produceDrones","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_dir","type":"uint8"}],"name":"shipMoveSectors","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_dir","type":"bool"},{"name":"_type","type":"bool"},{"name":"_amt","type":"uint64"}],"name":"shipStorageManage","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"getPlayerAssets","outputs":[{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"producePlanets","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"produceStars","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint8"}],"name":"getSectorAssets","outputs":[{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"shipAttackObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"players","outputs":[{"name":"ownsSector","type":"bool"},{"name":"drones","type":"uint64"},{"name":"credits","type":"uint64"},{"name":"lastStarProduce","type":"uint256"},{"name":"lastPlanetProduce","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_parent","type":"uint32"}],"name":"newObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"sectorCollection","outputs":[{"name":"id","type":"uint8"},{"name":"border","type":"uint8"},{"name":"wormholeId","type":"uint8"},{"name":"level","type":"uint8"},{"name":"name","type":"bytes16"},{"name":"owner","type":"address"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"shipCollection","outputs":[{"name":"class","type":"uint8"},{"name":"level","type":"uint8"},{"name":"sectorId","type":"uint8"},{"name":"shield","type":"uint16"},{"name":"hull","type":"uint16"},{"name":"owner","type":"address"},{"name":"id","type":"uint32"},{"name":"energy","type":"uint64"},{"name":"matter","type":"uint64"},{"name":"exploreTime","type":"uint256"},{"name":"battleTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_type","type":"uint8"},{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"objectNew","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_type","type":"uint8"},{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"objectCaptured","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_enemy","type":"uint32"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipBattled","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_result","type":"uint8"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipExplored","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_dir","type":"uint8"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipMoved","type":"event"}]
+		const address = "0x39cc88df9acafd7bbc511599670597a19737f969"
+
+		function startApp(web3) {
+		  const eth = new Eth(web3.currentProvider)
+		  const contract = new EthContract(eth)
+		  initContract(contract)
+		}
+
+		window.addEventListener('load', function() {
+
+		  // Check if Web3 has been injected by the browser:
+		  if (typeof web3 !== 'undefined') {
+			// You have a web3 browser! Continue below!
+			startApp(web3);
+		  } else {
+			 // Warn the user that they need to get a web3 browser
+			 // Or install MetaMask, maybe with a nice graphic.
+		  }
+
+		})
+
+		function initContract (contract) {
+		  const EtherGalaxy = contract(abi)
+		  const etherGalaxy = EtherGalaxy.at(address)
+		  listenForClicks(etherGalaxy)
+		}
+
+		function listenForClicks (etherGalaxy) {
+		  var button = document.querySelector('button.newStar')
+		  button.addEventListener('click', function() {
+			etherGalaxy.newObject(0, 1, { from: addr })
+			.then(function (txHash) {
+			  console.log('Transaction sent')
+			  console.dir(txHash)
+			  waitForTxToBeMined(txHash)
+			})
+			.catch(console.error)
+		  })
+		}
+
+		async function waitForTxToBeMined (txHash) {
+		  let txReceipt
+		  while (!txReceipt) {
+			try {
+			  txReceipt = await eth.getTransactionReceipt(txHash)
+			} catch (err) {
+			  return indicateFailure(err)
+			}
+		  }
+		  indicateSuccess()
+		}
+	</script>
+	<button class="newStar">newStar</button>
+  </body>
+ </html>
