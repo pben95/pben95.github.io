@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>EtherGalaxy</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<script src="https://cdn.jsdelivr.net/npm/web3@0.20.6/dist/web3.min.js"></script>
 
@@ -12,17 +12,34 @@
 <body>
     <div class="container">
 
-        <h1>Coursetro Instructor</h1>
+        <h1>EtherGalaxy</h1>
 
-        <h2 id="instructor"></h2>
+        <label for="input1" class="col-lg-2 control-label"></label>
+        <input id="input1" type="text">
 
-        <label for="name" class="col-lg-2 control-label">0 for star, 1 for planet, 2 for station</label>
-        <input id="name" type="text">
+        <label for="input2" class="col-lg-2 control-label"></label>
+        <input id="input2" type="text">
+		
+		<label for="input3" class="col-lg-2 control-label"></label>
+        <input id="input3" type="text">
 
-        <label for="age" class="col-lg-2 control-label">Sector for star/station, star for planet</label>
-        <input id="age" type="text">
-
-        <button id="button">newObject</button>
+        <label for="input4" class="col-lg-2 control-label"></label>
+        <input id="input4" type="text">
+		
+		<button id="button1"> newObject(uint8 _type, uint32 _parent)</button>
+		<button id="button2"> produceStars()</button>
+		<button id="button3"> producePlanets()</button>
+		<button id="button4"> produceDrones(uint32 _stationId, uint64 _amt)</button>
+		<button id="button5"> objectLevelUp(uint8 _type, uint32 _id)</button>
+		<button id="button6"> defendObject(uint8 _type, uint32 _id, uint64 _amt)</button>
+		<button id="button7"> newShip(uint32 _stationId, uint8 _class)</button>
+		<button id="button8"> shipExplore(uint32 _shipId)</button>
+		<button id="button9"> shipMoveSectors(uint32 _shipId, uint8 _dir)</button>
+		<button id="button10"> shipStorageManage(uint32 _shipId, bool _dir, bool _type, uint64 _amt)</button>
+		<button id="button11"> shipRepair(uint32 _shipId)</button>
+		<button id="button12"> shipBattleShip(uint32 _shipId, uint32 _enemyId)</button>
+		<button id="button13"> shipAttackObject(uint32 _shipId, uint8 _type, uint32 _id)</button>
+		<button id="button14"> objectUpgrade(uint8 _type, uint32 _id)</button>
 
 
     </div>
@@ -44,9 +61,152 @@
         var Coursetro = CoursetroContract.at('0x39cc88df9acafd7bbc511599670597a19737f969');
         console.log(Coursetro);
 		
-		$("#button").click(function(){
+		$("#button1").click(function(){
 
-                Coursetro.newObject($("#name").val(),$("#age").val(),
+                Coursetro.newObject($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button2").click(function(){
+
+                Coursetro.produceStars(
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  600000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button3").click(function(){
+
+                Coursetro.producePlanets(
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  600000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button4").click(function(){
+
+                Coursetro.produceDrones($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button5").click(function(){
+
+                Coursetro.objectLevelUp($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button6").click(function(){
+
+                Coursetro.defendObject($("#input1").val(),$("#input2").val(),$("#input3").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button7").click(function(){
+
+                Coursetro.newShip($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button8").click(function(){
+
+                Coursetro.shipExplore($("#input1").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button9").click(function(){
+
+                Coursetro.shipMoveSectors($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button10").click(function(){
+
+                Coursetro.shipStorageManage($("#input1").val(),$("#input2").val(),$("#input3").val(),$("#input4").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button11").click(function(){
+
+                Coursetro.shipRepair($("#input1").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button12").click(function(){
+
+                Coursetro.shipBattleShip($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button13").click(function(){
+
+                Coursetro.shipAttackObject($("#input1").val(),$("#input2").val(),$("#input3").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button14").click(function(){
+
+                Coursetro.objectUpgrade($("#input1").val(),$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x39cc88df9acafd7bbc511599670597a19737f969',
                 value:  0,
