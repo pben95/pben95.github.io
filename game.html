@@ -13,7 +13,7 @@
     <div class="container">
 
         <h1>EtherGalaxy</h1>
-
+		<h2>Object types 0 = star, 1 = planet, 2 = station, 3 = sector, 4 = ship</h2>
         <label for="input1" class="col-lg-2 control-label"></label>
         <input id="input1" type="text">
 
@@ -26,20 +26,20 @@
         <label for="input4" class="col-lg-2 control-label"></label>
         <input id="input4" type="text">
 		
-		<button id="button1"> newObject(uint8 _type, uint32 _parent)</button>
+		<button id="button1"> newObject(type, parentID)</button>
 		<button id="button2"> produceStars()</button>
 		<button id="button3"> producePlanets()</button>
-		<button id="button4"> produceDrones(uint32 _stationId, uint64 _amt)</button>
-		<button id="button5"> objectLevelUp(uint8 _type, uint32 _id)</button>
-		<button id="button6"> defendObject(uint8 _type, uint32 _id, uint64 _amt)</button>
-		<button id="button7"> newShip(uint32 _stationId, uint8 _class)</button>
-		<button id="button8"> shipExplore(uint32 _shipId)</button>
-		<button id="button9"> shipMoveSectors(uint32 _shipId, uint8 _dir)</button>
-		<button id="button10"> shipStorageManage(uint32 _shipId, bool _dir, bool _type, uint64 _amt)</button>
-		<button id="button11"> shipRepair(uint32 _shipId)</button>
-		<button id="button12"> shipBattleShip(uint32 _shipId, uint32 _enemyId)</button>
-		<button id="button13"> shipAttackObject(uint32 _shipId, uint8 _type, uint32 _id)</button>
-		<button id="button14"> objectUpgrade(uint8 _type, uint32 _id)</button>
+		<button id="button4"> produceDrones(stationID, amount)</button>
+		<button id="button5"> objectLevelUp(type, objectID)</button>
+		<button id="button6"> defendObject(type, objectID, amount)</button>
+		<button id="button7"> newShip(stationID, shipClass)</button>
+		<button id="button8"> shipExplore(shipID)</button>
+		<button id="button9"> shipMoveSectors(shipID, numpad direction)</button>
+		<button id="button10"> shipStorageManage(shipID, 0 for withdraw 1 for deposit, 0 for matter 1 for energy, amount)</button>
+		<button id="button11"> shipRepair(shipID)</button>
+		<button id="button12"> shipBattleShip(your shipID, enemy shipID)</button>
+		<button id="button13"> shipAttackObject(shipID, type, objectID)</button>
+		<button id="button14"> objectUpgrade(type, objectID)</button>
 
 
     </div>
