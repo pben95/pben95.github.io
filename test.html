@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<script src="./node_modules/web3/dist/web3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/web3@0.20.6/dist/web3.min.js"></script>
 
 </head>
 <body>
@@ -44,10 +44,10 @@
         var Coursetro = CoursetroContract.at('0x39cc88df9acafd7bbc511599670597a19737f969');
         console.log(Coursetro);
 	   
-	    Coursetro.getInstructor(function(error, result){
+	    Coursetro.starCollection(function(error, result){
             if(!error)
                 {
-                    $("#instructor").html(result[0]+' ('+result[1]+' years old)');
+                    $("#instructor").html(result[0]+'');
                     console.log(result);
                 }
             else
@@ -55,10 +55,9 @@
         });
 
         $("#button").click(function() {
-            Coursetro.newObject($("name").val(), $("#age").val());
+            Coursetro.newObject(0, 1);
         });
-	   
-    </script>
+	</script>
 
 </body>
 </html>
