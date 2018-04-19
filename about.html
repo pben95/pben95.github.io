@@ -59,23 +59,36 @@
         <h2><b>About the game</b></h2></br>
         <p>This game is being made in Solidity using Remix IDE.</p>
         <p>It is currently in open alpha for the contract.</p>
-	<p>Go to MyEtherWallet, change the network to Rinkeby, and change MetaMask to Rinkeby.</p>
-	<p>Go to the contracts page, use the contract address and ABI from the link in the upper right.</p>
-	<p>Bugs: Planet's don't produce materials properly so don't make them, and therefore you can't produce drones either.</p>
-		<h3>Instructions for testers:</h3>
-		<h4>1: Use freeStuff() to get free energy and 50 units of material 1.</h4>
-		<h4>2: Use newStar(ID#) to get a star in the sector ID#. Between 1 and 225.</h4>
-		<h4>3: Use newStation(starID#) to get a station orbiting that star.</h4>
-		<h4>4: Use newShip(stationID#,1,1,1,1) to get a new ship at that station, using material 1 for all 4 components.</h4>
-		<h4>5: Use assetProduce(true, starId#) to produce energy from your star, true being a star, false being a planet.</h4>
-		<h4>6: Use exploreShip(shipId#) to explore the sector with your ship. You can find the sector's blackhole or wormhole.</h4>
-		<h4>7: Continue to use assetProduce and exploreShip on their cooldown to get more energy to use newPlanet(starId#).</h4>
-		<h4>8: Use assetSetProduction(planetId#, 1) to allow your planet to produce material 1, which is the only option at level 1.</h4>
-		<h4>9: Use assetProduce(false, planetId#) to convert energy into material 1. You cannot check your material balance in this contract.</h4>
-		<h4>10: Use assetProduceDrones(stationId#, amount, 1) to produce drones using material 1. For material 1, you get 1 drone/input.</h4>
-		<h4>11: Use defendAsset(type, id) or attackAsset(type, id) to defend/attack Stars/Planets/Stations/Sectors (types 0, 1, 2, 3).</h4>
-      		<h4>12: Use shipMove(shipId#, numpadDirection) to move your ship. It costs 1 energy from your ships fuel (max 10) to move one sector, make sure you don't run out. Use shipDock(shipId#, false, stationId#) and shipRefuel(shipId#) to dock and refuel.</h4>
-	</div>
+		<h3>Instructions for testers:</h3> </br>
+		<h4>1: Use newObject(0, sectorId) to make a new star at the given sector. </h4></br>
+		<h4>2. Use newObject(1,starId) to make a new planet at the given star. </h4></br>
+		<h4>3. Use newObject(2, sectorId) to make a new station at the given sector. </h4></br>
+		<h4>4. Use newShip(stationId, shipClass) to make a new ship at the given station. </br>
+			Make sure to check the shipClasses stats and costs before choosing which. </h4></br>
+		<h4>5. Use produceStars and producePlanets to harvest from your stars/planets. </br>
+			There is one cooldown for all a players stars, and another for all their planets. </br>
+			The energy and matter is stored in the sector it's produced in, and ship's are required to transport it. </br>
+			Trade was planned for this version, but contract size was too large. This is being worked on. </h4></br>
+		<h4>6. Use produceDrones(stationId, amount) to produce an amount of drones at that station. </br>
+			It cost 5 x station level * amount per drone. Drones are use for defending objects. </h4></br>
+		<h4>7. Use defendObject(type, object id, amount) to send drones to defend one of your objects. </br>
+			Type 0 is star, 1 is planet, 2 is station, and 3 is sector. You can send drones to any owned sector. </h4></br>
+		<h4>8. Use shipAttackObject(shipId, 3, sectorId) to attack a sector, you should try to take over the sector your star is in. </h4></br>
+		<h4>9. Use nameSector(id, name) to spend 1 finney to name your sector, if you managed to take it over. </h4></br>
+		<h4>10. Use shipBattleShip(shipId, enemyId) to battle an enemy ship in the same sector as you. </h4></br>
+		<h4>11. Use shipMoveSectors(shipId, numpad-direction) to move your ship in the given direction (8 north, 2 south, 9 north east, etc) </br>
+			Use direction 5 to use the sector's wormhole, if it's been discovered yet. </h4></br>
+		<h4>12. Use shipExplore() to look for resources in the sector your ship is in. Maybe you can find the ship's wormhole. </h4></br>
+		<h4>13. Use shipRepair() if your ship's hull is damaged. For now, this is free. </h4></br>
+		<h4>14. Use shipStorageManage(shipId, dir, type, amount) to move energy/matter to and from a ship. </br>
+			For dir, true means deposit, false means withdraw. For type, true means energy, false means matter. </h4></br>
+		<h4>15. Use objectLevelUp(type, id) to spend energy and matter to level up your objects to increase their production/stats. </br>
+			For types, 0 is star, 1 planet, 2 station, 3 sector, 4 ship. Costs increase as levels increase. </h4></br>
+		<h4>16. Use objectUpgrade(type, id) to spend 1 finney to upgrade the output stat of objects, which cannot change any other way. </br>
+			This stat is set on creation, and is random within a range. This function increases by a set amount each use. </h4></br>
+		<h4>17. Use the public getter functions on the contract's EtherScan page to access game info while awaiting the front-end </h4></br>
+		<h4>Thank you for your patience and please contact me with any feedback! </h4>
+      </div>
 
     </div> <!-- /container -->
 
