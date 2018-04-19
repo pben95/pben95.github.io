@@ -22,7 +22,7 @@
         <label for="age" class="col-lg-2 control-label">Sector for star/station, star for planet</label>
         <input id="age" type="text">
 
-        <button id="button">Update Instructor</button>
+        <button id="button">newObject</button>
 
 
     </div>
@@ -43,20 +43,18 @@
 
         var Coursetro = CoursetroContract.at('0x39cc88df9acafd7bbc511599670597a19737f969');
         console.log(Coursetro);
-	   
-	    Coursetro.starCollection(function(error, result){
-            if(!error)
-                {
-                    $("#instructor").html(result[0]+'');
-                    console.log(result);
-                }
-            else
-                console.error(error);
-        });
+		
+		$("#button").click(function(){
 
-        $("#button").click(function() {
-            Coursetro.newObject(0, 1);
-        });
+                Coursetro.newObject(0,1,
+                {from: web3.eth.defaultAccount,
+                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                value:  0,
+                gas:  300000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
 	</script>
 
 </body>
