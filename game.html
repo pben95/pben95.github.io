@@ -12,33 +12,35 @@
 <body>
     <div class="container">
 
-        <h1>EtherGalaxy</h1>
-		<h2>Object types 0 = star, 1 = planet, 2 = station, 3 = sector, 4 = ship</h2>
+        <button id="start"><h1>EtherGalaxy</h1></button>
+		<h2>Input 1 for main inputs, input 2 for secondary/if you have multiples ships.</h2>
         <label for="input1" class="col-lg-2 control-label"></label>
         <input id="input1" type="text">
 
         <label for="input2" class="col-lg-2 control-label"></label>
         <input id="input2" type="text">
 		
-		<label for="input3" class="col-lg-2 control-label"></label>
-        <input id="input3" type="text">
-
-        <label for="input4" class="col-lg-2 control-label"></label>
-        <input id="input4" type="text">
-		
-		<button id="button1"> newObject(type, parentID)</button>
-		<button id="button2"> produceStars()</button>
-		<button id="button3"> producePlanets()</button>
-		<button id="button4"> produceDrones(stationID, amount)</button>
-		<button id="button5"> objectLevelUp(type, objectID)</button>
-		<button id="button6"> defendObject(type, objectID, amount)</button>
-		<button id="button7"> newShip(stationID, shipClass)</button>
-		<button id="button8"> shipExplore(shipID)</button>
-		<button id="button9"> shipMoveSectors(shipID, numpad direction)</button>
-		<button id="button11"> shipRepair(shipID)</button>
-		<button id="button12"> shipBattleShip(your shipID, enemy shipID)</button>
-		<button id="button13"> shipAttackObject(shipID, type, objectID)</button>
-		<button id="button14"> objectUpgrade(type, objectID)</button>
+		<button id="button1"> Produce Energy & Matter</button>
+		<button id="button2"> Ship Move</button>
+		<button id="button3"> Ship Explore</button>
+		<button id="button4"> Ship Mine</button>
+		<button id="button5"> Ship Skirmish</button>
+		<button id="button6"> Ship Assault</button>
+		<button id="button7"> Ship Repair</button>
+		<button id="button8"> Ship Warp</button>
+		<button id="button9"> Produce Drones</button>
+		<button id="button10"> Defend Sector</button>
+		<button id="button11"> Equip Sector</button>
+		<button id="button12"> Level Up Station/Sector</button>
+		<button id="button13"> Level Up Ship Stat</button>
+		<button id="button14"> Buy Energy</button>
+		<button id="button15"> Sell Energy</button>
+		<button id="button16"> Buy Matter</button>
+		<button id="button17"> Sell Matter</button>
+		<button id="button18"> Buy Drones</button>
+		<button id="button19"> Sell Drones</button>
+		<button id="button20"> Upgrade Player Energy</button>
+		<button id="button21"> Upgrade Player Matter</button>
 
 
     </div>
@@ -55,16 +57,26 @@
 	 
 		web3.eth.defaultAccount = web3.eth.accounts[0];
 
-        var CoursetroContract = web3.eth.contract([{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"stationCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"},{"name":"_id","type":"uint8"}],"name":"getSectorBalances","outputs":[{"name":"","type":"uint64"},{"name":"","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"compute","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_hull","type":"uint16"},{"name":"_short","type":"uint16"},{"name":"_long","type":"uint16"},{"name":"_speed","type":"uint16"},{"name":"_maxEnergy","type":"uint64"},{"name":"_maxMatter","type":"uint64"},{"name":"_energyCost","type":"uint64"},{"name":"_matterCost","type":"uint64"}],"name":"newShipClass","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"starCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"},{"name":"_amt","type":"uint64"}],"name":"defendObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint8"}],"name":"shipClasses","outputs":[{"name":"active","type":"bool"},{"name":"maxHull","type":"uint16"},{"name":"shortDamage","type":"uint16"},{"name":"longDamage","type":"uint16"},{"name":"speed","type":"uint16"},{"name":"maxEnergy","type":"uint64"},{"name":"maxMatter","type":"uint64"},{"name":"energyCost","type":"uint64"},{"name":"matterCost","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint8"}],"name":"getStarPlanets","outputs":[{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_value","type":"uint256"}],"name":"changeValue","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"}],"name":"shipExplore","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"planetCollection","outputs":[{"name":"class","type":"uint8"},{"name":"output","type":"uint8"},{"name":"level","type":"uint8"},{"name":"owner","type":"address"},{"name":"parentId","type":"uint32"},{"name":"id","type":"uint32"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint8"}],"name":"toggleShipClass","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_stationId","type":"uint32"}],"name":"shipBailout","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"}],"name":"shipRepair","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stationId","type":"uint32"},{"name":"_class","type":"uint8"}],"name":"newShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"objectLevelUp","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"objectUpgrade","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_sectorId","type":"uint8"},{"name":"_name","type":"bytes16"}],"name":"nameSector","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_enemyId","type":"uint32"}],"name":"shipBattleShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_stationId","type":"uint32"},{"name":"_amt","type":"uint64"}],"name":"produceDrones","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_dir","type":"uint8"}],"name":"shipMoveSectors","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_dir","type":"bool"},{"name":"_type","type":"bool"},{"name":"_amt","type":"uint64"}],"name":"shipStorageManage","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"getPlayerAssets","outputs":[{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"producePlanets","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"produceStars","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint8"}],"name":"getSectorAssets","outputs":[{"name":"","type":"uint32[]"},{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_shipId","type":"uint32"},{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"shipAttackObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"players","outputs":[{"name":"ownsSector","type":"bool"},{"name":"drones","type":"uint64"},{"name":"credits","type":"uint64"},{"name":"lastStarProduce","type":"uint256"},{"name":"lastPlanetProduce","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_parent","type":"uint32"}],"name":"newObject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"sectorCollection","outputs":[{"name":"id","type":"uint8"},{"name":"border","type":"uint8"},{"name":"wormholeId","type":"uint8"},{"name":"level","type":"uint8"},{"name":"name","type":"bytes16"},{"name":"owner","type":"address"},{"name":"defense","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"shipCollection","outputs":[{"name":"class","type":"uint8"},{"name":"level","type":"uint8"},{"name":"sectorId","type":"uint8"},{"name":"shield","type":"uint16"},{"name":"hull","type":"uint16"},{"name":"owner","type":"address"},{"name":"id","type":"uint32"},{"name":"energy","type":"uint64"},{"name":"matter","type":"uint64"},{"name":"exploreTime","type":"uint256"},{"name":"battleTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_type","type":"uint8"},{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"objectNew","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_type","type":"uint8"},{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"objectCaptured","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_enemy","type":"uint32"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipBattled","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_result","type":"uint8"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipExplored","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_ship","type":"uint32"},{"indexed":false,"name":"_dir","type":"uint8"},{"indexed":false,"name":"_sector","type":"uint8"}],"name":"shipMoved","type":"event"}]);
+        var CoursetroContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_id","type":"uint32"}],"name":"levelUpAsset","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"compute","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getPlayerShips","outputs":[{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"sectors","outputs":[{"name":"id","type":"uint8"},{"name":"border","type":"uint8"},{"name":"level","type":"uint8"},{"name":"offense","type":"uint8"},{"name":"name","type":"bytes16"},{"name":"owner","type":"address"},{"name":"lastCapture","type":"uint48"},{"name":"defense","type":"uint64"},{"name":"matterLeft","type":"uint64"},{"name":"energy","type":"uint64"},{"name":"matter","type":"uint64"},{"name":"drones","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"produceEM","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_ship","type":"uint32"}],"name":"addStation","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"bool"},{"name":"_ship","type":"uint32"}],"name":"exchangeDrones","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getPlayerStations","outputs":[{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_ship","type":"uint32"}],"name":"shipExplore","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sector","type":"uint32"}],"name":"equipSector","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sector","type":"uint8"},{"name":"_ship","type":"uint32"}],"name":"shipWarp","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"uint8"},{"name":"_value","type":"uint48"}],"name":"changeCooldown","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_sector","type":"uint8"},{"name":"_to","type":"uint8"}],"name":"getWarpgate","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_dir","type":"uint8"},{"name":"_ship","type":"uint32"}],"name":"shipMove","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_station","type":"uint32"},{"name":"_ship","type":"uint32"}],"name":"levelUpShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_ship","type":"uint32"}],"name":"shipRepair","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sector","type":"uint32"},{"name":"_amt","type":"uint64"}],"name":"defendSector","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_station","type":"uint32"}],"name":"addShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"bool"},{"name":"_ship","type":"uint32"}],"name":"exchangeEnergy","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"ships","outputs":[{"name":"sectorId","type":"uint8"},{"name":"hull","type":"uint8"},{"name":"maxhull","type":"uint8"},{"name":"short","type":"uint8"},{"name":"long","type":"uint8"},{"name":"engine","type":"uint8"},{"name":"mining","type":"uint8"},{"name":"id","type":"uint32"},{"name":"exploreTime","type":"uint48"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_sectorId","type":"uint8"},{"name":"_name","type":"bytes16"}],"name":"nameSector","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_enemy","type":"uint32"},{"name":"_ship","type":"uint32"}],"name":"shipBattleShip","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sector","type":"uint32"},{"name":"_ship","type":"uint32"}],"name":"shipAssaultSector","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_type","type":"bool"},{"name":"_ship","type":"uint32"}],"name":"exchangeMatter","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"joinGame","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"players","outputs":[{"name":"ownsSector","type":"bool"},{"name":"level","type":"uint8"},{"name":"energyProduction","type":"uint8"},{"name":"matterProduction","type":"uint8"},{"name":"lastProduce","type":"uint48"},{"name":"energy","type":"uint64"},{"name":"matter","type":"uint64"},{"name":"gems","type":"uint64"},{"name":"credits","type":"uint64"},{"name":"drones","type":"uint64"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_station","type":"uint32"}],"name":"produceDrones","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"stations","outputs":[{"name":"level","type":"uint8"},{"name":"sectorId","type":"uint8"},{"name":"shipStat","type":"uint8"},{"name":"id","type":"uint32"},{"name":"lastProduce","type":"uint48"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_ship","type":"uint32"}],"name":"shipMine","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint8"}],"name":"getSectorStations","outputs":[{"name":"","type":"uint32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_stat","type":"bool"}],"name":"playerUpgrade","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
 
-        var Coursetro = CoursetroContract.at('0x39cc88df9acafd7bbc511599670597a19737f969');
+        var Coursetro = CoursetroContract.at('0x120b119f0638c3d06ad6a3066ce1f17e283dae8a');
         console.log(Coursetro);
 		
+		$("#start").click(function(){
+
+                Coursetro.joinGame(
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
 		$("#button1").click(function(){
 
-                Coursetro.newObject($("#input1").val(),$("#input2").val(),
+                Coursetro.produceEM(
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -72,9 +84,9 @@
             })});
 		$("#button2").click(function(){
 
-                Coursetro.produceStars(
+                Coursetro.shipMove($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -82,9 +94,9 @@
             })});
 		$("#button3").click(function(){
 
-                Coursetro.producePlanets(
+                Coursetro.shipExplore(
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -92,9 +104,9 @@
             })});
 		$("#button4").click(function(){
 
-                Coursetro.produceDrones($("#input1").val(),$("#input2").val(),
+                Coursetro.shipMine(
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -102,9 +114,9 @@
             })});
 		$("#button5").click(function(){
 
-                Coursetro.objectLevelUp($("#input1").val(),$("#input2").val(),
+                Coursetro.shipBattleShip($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -112,9 +124,9 @@
             })});
 		$("#button6").click(function(){
 
-                Coursetro.defendObject($("#input1").val(),$("#input2").val(),$("#input3").val(),
+                Coursetro.shipAssaultSector($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -122,9 +134,9 @@
             })});
 		$("#button7").click(function(){
 
-                Coursetro.newShip($("#input1").val(),$("#input2").val(),
+                Coursetro.shipRepair(
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -132,9 +144,9 @@
             })});
 		$("#button8").click(function(){
 
-                Coursetro.shipExplore($("#input1").val(),
+                Coursetro.shipWarp($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -142,9 +154,19 @@
             })});
 		$("#button9").click(function(){
 
-                Coursetro.shipMoveSectors($("#input1").val(),$("#input2").val(),
+                Coursetro.produceDrones($(
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button10").click(function(){
+
+                Coursetro.defendSector($("#input1").val(),$("#input2").val(),
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -152,9 +174,9 @@
             })});
 		$("#button11").click(function(){
 
-                Coursetro.shipRepair($("#input1").val(),
+                Coursetro.equipSector($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -162,9 +184,9 @@
             })});
 		$("#button12").click(function(){
 
-                Coursetro.shipBattleShip($("#input1").val(),$("#input2").val(),
+                Coursetro.levelUpAsset($("#input1").val(),$("#input2").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -172,9 +194,9 @@
             })});
 		$("#button13").click(function(){
 
-                Coursetro.shipAttackObject($("#input1").val(),$("#input2").val(),$("#input3").val(),
+                Coursetro.levelUpShip($("#input1").val(),
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
                     }, function(err, transactionHash) {
               if (!err)
@@ -182,10 +204,80 @@
             })});
 		$("#button14").click(function(){
 
-                Coursetro.objectUpgrade($("#input1").val(),$("#input2").val(),
+                Coursetro.exchangeEnergy(true,
                 {from: web3.eth.defaultAccount,
-                to:'0x39cc88df9acafd7bbc511599670597a19737f969',
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button15").click(function(){
+
+                Coursetro.exchangeEnergy(false,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button16").click(function(){
+
+                Coursetro.exchangeMatter(true,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button17").click(function(){
+
+                Coursetro.exchangeMatter(false,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button18").click(function(){
+
+                Coursetro.exchangeDrones(true,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button19").click(function(){
+
+                Coursetro.exchangeDrones(false,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button20").click(function(){
+
+                Coursetro.playerUpgrade(true,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  1000000000000000
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })});
+		$("#button21").click(function(){
+
+                Coursetro.playerUpgrade(false,
+                {from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  1000000000000000
                     }, function(err, transactionHash) {
               if (!err)
                 console.log(transactionHash); 
