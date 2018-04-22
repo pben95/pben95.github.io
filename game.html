@@ -13,7 +13,7 @@
     <div class="container">
 
         <button id="start"><h1>EtherGalaxy</h1></button>
-		<h2>Input 1 for main inputs, input 2 for secondary/if you have multiples ships.</h2>
+		<h2>2nd input defaults to 0 for the first object in the players ship/station array.</h2>
         <label for="input1" class="col-lg-2 control-label"></label>
         <input id="input1" type="text">
 
@@ -204,7 +204,7 @@
             })});
 		$("#button14").click(function(){
 
-                Coursetro.exchangeEnergy("true",$("#input2").val(),
+                Coursetro.exchangeEnergy(true,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -214,7 +214,7 @@
             })});
 		$("#button15").click(function(){
 
-                Coursetro.exchangeEnergy("false",$("#input2").val(),
+                Coursetro.exchangeEnergy(false,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -224,7 +224,7 @@
             })});
 		$("#button16").click(function(){
 
-                Coursetro.exchangeMatter("true",$("#input2").val(),
+                Coursetro.exchangeMatter(true,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -234,7 +234,7 @@
             })});
 		$("#button17").click(function(){
 
-                Coursetro.exchangeMatter("false",$("#input2").val(),
+                Coursetro.exchangeMatter(false,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -244,7 +244,7 @@
             })});
 		$("#button18").click(function(){
 
-                Coursetro.exchangeDrones("true",$("#input2").val(),
+                Coursetro.exchangeDrones(true,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -254,7 +254,7 @@
             })});
 		$("#button19").click(function(){
 
-                Coursetro.exchangeDrones("false",$("#input2").val(),
+                Coursetro.exchangeDrones(false,$("#input2").val(),
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  0
@@ -264,7 +264,7 @@
             })});
 		$("#button20").click(function(){
 
-                Coursetro.playerUpgrade("true",
+                Coursetro.playerUpgrade(true,
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  1000000000000000
@@ -274,7 +274,7 @@
             })});
 		$("#button21").click(function(){
 
-                Coursetro.playerUpgrade("false",
+                Coursetro.playerUpgrade(false,
                 {from: web3.eth.defaultAccount,
                 to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
                 value:  1000000000000000
