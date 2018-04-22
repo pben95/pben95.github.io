@@ -60,33 +60,20 @@
         <p>This game is being made in Solidity using Remix IDE.</p>
         <p>It is currently in open alpha for the contract.</p>
 		<h3>Instructions for testers:</h3> </br>
-		<h4>1: Use newObject(0, sectorId) to make a new star at the given sector. </h4></br>
-		<h4>2. Use newObject(1,starId) to make a new planet at the given star. </h4></br>
-		<h4>3. Use newObject(2, sectorId) to make a new station at the given sector. </h4></br>
-		<h4>4. Use newShip(stationId, shipClass) to make a new ship at the given station. </br>
-			Make sure to check the shipClasses stats and costs before choosing which. </h4></br>
-		<h4>5. Use produceStars and producePlanets to harvest from your stars/planets. </br>
-			There is one cooldown for all a players stars, and another for all their planets. </br>
-			The energy and matter is stored in the sector it's produced in, and ship's are required to transport it. </br>
-			Trade was planned for this version, but contract size was too large. This is being worked on. </h4></br>
-		<h4>6. Use produceDrones(stationId, amount) to produce an amount of drones at that station. </br>
-			It cost 5 x station level * amount per drone. Drones are use for defending objects. </h4></br>
-		<h4>7. Use defendObject(type, object id, amount) to send drones to defend one of your objects. </br>
-			Type 0 is star, 1 is planet, 2 is station, and 3 is sector. You can send drones to any owned sector. </h4></br>
-		<h4>8. Use shipAttackObject(shipId, 3, sectorId) to attack a sector, you should try to take over the sector your star is in. </h4></br>
-		<h4>9. Use nameSector(id, name) to spend 1 finney to name your sector, if you managed to take it over. </h4></br>
-		<h4>10. Use shipBattleShip(shipId, enemyId) to battle an enemy ship in the same sector as you. </h4></br>
-		<h4>11. Use shipMoveSectors(shipId, numpad-direction) to move your ship in the given direction (8 north, 2 south, 9 north east, etc) </br>
-			Use direction 5 to use the sector's wormhole, if it's been discovered yet. </h4></br>
-		<h4>12. Use shipExplore() to look for resources in the sector your ship is in. Maybe you can find the ship's wormhole. </h4></br>
-		<h4>13. Use shipRepair() if your ship's hull is damaged. For now, this is free. </h4></br>
-		<h4>14. Use shipStorageManage(shipId, dir, type, amount) to move energy/matter to and from a ship. </br>
-			For dir, true means deposit, false means withdraw. For type, true means energy, false means matter. </h4></br>
-		<h4>15. Use objectLevelUp(type, id) to spend energy and matter to level up your objects to increase their production/stats. </br>
-			For types, 0 is star, 1 planet, 2 station, 3 sector, 4 ship. Costs increase as levels increase. </h4></br>
-		<h4>16. Use objectUpgrade(type, id) to spend 1 finney to upgrade the output stat of objects, which cannot change any other way. </br>
-			This stat is set on creation, and is random within a range. This function increases by a set amount each use. </h4></br>
-		<h4>17. Use the public getter functions on the contract's EtherScan page to access game info while awaiting the front-end </h4></br>
+		<h4>Energy used for moving ship, matter used for ship combat, gems used for leveling and upgrading ship.</h4>
+		<h4>1. Use the EtherGalaxy button to join the game and get a free ship.</h4>
+		<h4>2. Use produce energy and matter to get resources, has a cooldown.</h4>
+		<h4>3. Input a numpad direction to use shipMove, which moves in that direction.</h4>
+		<h4>4. shipExplore explores the sector your ship is currently in. Has a cooldown</h4>
+		<h4>5. shipMine mines the area it's in. Chance to find gems.</h4>
+		<h4>6. Use shipSkirmish to fight another ship. Enter enemy ship ID in input 1.</h4>
+		<h4>7. Use shipAssault to assault a sector. Energy sector ID in input 1.</h4>
+		<h4>8. Use produceDrones to build drones from energy and matter at a station you own. Requires owning a station. </h4>
+		<h4>9. Use defendSector to send drones to defend a sector. Protects from invaders. </h4>
+		<h4>10. Use equipSector to increase a sectors return damage on attacking enemy ships.</h4>
+		<h4>11. Use levelUp with 1 to level up a station, 2 to level up your player, and 3 to level up a sector.</h4>
+		<h4>12. Use levelUpShip to upgrade a ship stat. Must be at a station that can upgrade that stat, and has a high enough level. </h4>
+		<h4>13. Buying and selling resources is done in amounts of 100 only. </h4>
 		<h4>Thank you for your patience and please contact me with any feedback! </h4>
       </div>
 
