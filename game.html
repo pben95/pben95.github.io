@@ -64,7 +64,7 @@
         console.log(Coursetro);
 		
 		function updatePlayer() {
-			document.getElementById('player').text = Coursetro.players.call(web3.eth.defaultAccount);
+			document.getElementById('player').innerHTML = Coursetro.players.call(web3.eth.defaultAccount);
 			setTimeout(updatePlayer, 10000);
 		}
 		
