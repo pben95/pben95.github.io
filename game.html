@@ -19,6 +19,7 @@
 
         <label for="input2" class="col-lg-2 control-label"></label>
         <input id="input2" type="text" placeholder="0">
+		<label id="player">.</label>
 		
 		<button id="button1"> Produce Energy & Matter</button>
 		<button id="button2"> Ship Move</button>
@@ -61,6 +62,22 @@
 
         var Coursetro = CoursetroContract.at('0x120b119f0638c3d06ad6a3066ce1f17e283dae8a');
         console.log(Coursetro);
+		
+		function updatePlayer() {
+			document.getElementById('player').innerHTML = Coursetro.players.call(
+			{from: web3.eth.defaultAccount,
+                to:'0x120b119f0638c3d06ad6a3066ce1f17e283dae8a',
+                value:  0
+                    }, function(err, transactionHash) {
+              if (!err)
+                console.log(transactionHash); 
+            })
+			setTimeout(updatePlayer, 10000);
+		}
+		
+		$(function() {
+			setTimeout(updatePlayer, 10000);
+		});
 		
 		$("#start").click(function(){
 
