@@ -63,16 +63,6 @@
         var Coursetro = CoursetroContract.at('0x120b119f0638c3d06ad6a3066ce1f17e283dae8a');
         console.log(Coursetro);
 		
-		function updatePlayer() {
-			var object = JSON.parse(Coursetro.call().players(web3.eth.defaultAccount);
-			document.getElementById('player').innerHTML = object;
-			setTimeout(updatePlayer, 10000);
-		}
-		
-		$(function() {
-			setTimeout(updatePlayer, 10000);
-		});
-		
 		$("#start").click(function(){
 
                 Coursetro.joinGame(
